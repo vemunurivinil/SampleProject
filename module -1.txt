@@ -1,0 +1,34 @@
+/* Script to Cretae TUserDetails table  */
+DROP TABLE IF EXISTS 'TUserDetails' 
+CREATE TABLE TUserDetails
+(
+	Id INT,
+	Name VARCHAR(20),
+	Address VARCHAR(100),
+	PhoneNumber VARCHAR(15)
+);
+
+/* Script to Cretae InsertUserDetails Procedure  */
+DROP PROCEDURE IF EXISTS 'InsertUserDetails' 
+CREATE PROCEDURE InsertUserDetails
+(IN Id INT,
+IN Name VARCHAR(20),
+IN Address VARCHAR(100),
+IN PhoneNumber VARCHAR(15)
+)
+BEGIN
+	INSERT INTO TUserDetails (Id,Name,Address,PhoneNumber)
+	VALUES (Id, Name, Address, PhoneNumber);
+END;
+
+/* Script to Cretae RetrieveUserDetails Procedure  */
+DROP PROCEDURE IF EXISTS 'RetrieveUserDetails' 
+CREATE PROCEDURE  RetrieveUserDetails
+(
+IN Id INT
+)
+BEGIN
+	SELECT Id,Name,Address,PhoneNumber
+	FROM TUserDetails
+	WHERE Id=Id;
+END;
